@@ -6,9 +6,15 @@ const connectDB = require('./config/db');
 dotenv.config();
 const app = express();
 
-// ✅ Allow CORS from frontend
-app.use(cors({
-  origin: 'http://localhost:3000', // your React app URL
+// Allow CORS from frontend
+// app.use(cors({
+//   origin: 'http://localhost:3000', // your React app URL
+//   methods: ['GET', 'POST'],
+//   credentials: true
+// }));
+
+aapp.use(cors({
+  origin: [process.env.FRONTEND_URL, 'http://localhost:3000'],
   methods: ['GET', 'POST'],
   credentials: true
 }));

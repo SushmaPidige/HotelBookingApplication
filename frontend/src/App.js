@@ -8,6 +8,7 @@ import BookingListModal from './components/BookingListModal';
 
 
 function App() {
+  console.log("Backend URL:", process.env.REACT_APP_API_URL);
   return (
     <Router>
       <Routes>

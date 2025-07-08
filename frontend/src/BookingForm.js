@@ -1,5 +1,9 @@
+// src/BookingForm.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+
+// API base URL from .env file
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 // Hotel list to derive price based on city and type
 const hotels = [
@@ -27,7 +31,6 @@ function BookingForm() {
     return match ? match.price : 0;
   };
 
-  // const [roomType, setRoomType] = useState(selectedType);
   const [roomType] = useState(selectedType);
   const [price, setPrice] = useState(getPrice(selectedCity, selectedType));
 
@@ -54,7 +57,7 @@ function BookingForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5001/api/book', {
+      const res = await fetch(`${API_BASE_URL}/api/book`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -80,25 +83,16 @@ function BookingForm() {
     marginRight: '1rem',
   };
 
-  // const inputStyle = {
-  //   padding: '0.6rem 1rem',
-  //   fontSize: '1rem',
-  //   border: '1px solid #ccc',
-  //   borderRadius: '8px',
-  //   width: '100%',
-  //   maxWidth: '280px',
-  // };
-
   const inputStyle = {
-  padding: '0.2rem 0.8rem',  // ⬅️ smaller vertical padding
-  fontSize: '0.9rem',        // optional: reduce font size a bit
-  border: '1px solid #ccc',
-  borderRadius: '6px',
-  width: '100%',
-  maxWidth: '200px',         // optional: reduce width slightly
-  marginTop: 0,
-  marginBottom: 0,
-};
+    padding: '0.2rem 0.8rem',
+    fontSize: '0.9rem',
+    border: '1px solid #ccc',
+    borderRadius: '6px',
+    width: '100%',
+    maxWidth: '200px',
+    marginTop: 0,
+    marginBottom: 0,
+  };
 
   return (
     <div style={{ textAlign: 'center', padding: '2rem' }}>
@@ -157,35 +151,23 @@ function BookingForm() {
           />
         </div>
 
-        {/* Type (dropdown)
+        {/* Room Type (plain text) */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
           <label htmlFor="roomType" style={labelStyle}>Type:</label>
-          <select
+          <div
             id="roomType"
-            value={roomType}
-            onChange={(e) => setRoomType(e.target.value)}
-            style={{ ...inputStyle, appearance: 'none' }}
-            required
+            style={{
+              ...inputStyle,
+              paddingTop: '0.2rem',
+              paddingBottom: '0.2rem',
+              border: '1px solid #ccc',
+              borderRadius: '6px',
+              backgroundColor: '#f5f5f5',
+            }}
           >
-            <option value="Single">Single</option>
-            <option value="Double">Double</option>
-            <option value="Suite">Suite</option>
-          </select>
-        </div> */}
-
-        {/* Type (plain text) */}
-      
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-  <label htmlFor="roomType" style={labelStyle}>Type:</label>
-  <div
-    id="roomType"
-    style={{ ...inputStyle, paddingTop: '0.2rem', paddingBottom: '0.2rem', border: '1px solid #ccc', borderRadius: '6px', backgroundColor: '#f5f5f5' }}
-  >
-    {roomType}
-  </div>
-</div>
-
-
+            {roomType}
+          </div>
+        </div>
 
         <button
           type="submit"
