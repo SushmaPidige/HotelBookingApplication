@@ -1,0 +1,126 @@
+.search-results-wrapper {
+  padding: 2rem;
+  text-align: center;
+}
+
+.search-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filters select {
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.hotel-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hotel-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 320px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 0;
+  border: 2px solid transparent;
+}
+
+/* Add radiant border effect without affecting inside */
+.hotel-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2px;
+  border-radius: 18px;
+  background: linear-gradient(45deg, #00f0ff, #ff00c8, #00ff9e, #00f0ff);
+  background-size: 400% 400%;
+  animation: gradientBorder 8s ease infinite;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+.hotel-card:hover {
+  transform: scale(1.02);
+}
+
+.hotel-card h3 {
+  margin-top: 0;
+  color: #333;
+}
+.hotel-image {
+  width: 100%;
+  height: 120px; /* smaller height */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.book-btn {
+  margin-top: 1rem;
+  background: linear-gradient(to right, #00c6ff, #00ff6a);
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.book-btn:hover {
+  background: linear-gradient(to right, #00ffff, #00c6ff);
+}
+
+.no-results {
+  color: #999;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+.hotel-price {
+  color: #1ab71f; /* bright pink color, you can change */
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+@keyframes gradientBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+

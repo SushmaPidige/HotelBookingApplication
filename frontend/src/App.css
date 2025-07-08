@@ -1,0 +1,276 @@
+/* 🌈 Live animated gradient background */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100%;
+  background: linear-gradient(-45deg, #ffecd2, #fcb69f, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientFlow 20s ease infinite;
+  color: #333;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ✅ Top navigation bar with elegant gradient */
+.top-bar {
+  background: linear-gradient(to right, #00ffee, #00f7ff, #4fd590);
+  padding: 0.6rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* 🖋️ The SkyView logo with stylish cursive font */
+.logo {
+  font-size: 2rem;
+  font-family: 'Pacifico', cursive;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+/* 🔐 Login button */
+.login-button {
+  padding: 0.4rem 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #EA4335, #FBBC05, #34A853, #4285F4);
+  background-size: 300% 100%;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: rainbowButton 6s ease infinite;
+}
+
+@keyframes rainbowButton {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.login-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ✨ Hero section */
+.hero-section {
+  text-align: center;
+  padding: 3rem 1rem 1rem;
+  color: #2c3e50;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 🔍 Google-style Search Bar */
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  width: 60%;
+  max-width: 500px;
+  padding: 0.75rem 1.2rem;
+  font-size: 1rem;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  box-shadow: 0 1px 8px rgba(32, 33, 36, 0.4);
+  border-color: transparent;
+}
+
+/* 🖼️ Image gallery section */
+.image-gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  margin: 2rem auto;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.image-container {
+  position: relative;
+}
+
+.gallery-image {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+/* 👇 Stylish overlay link text */
+.image-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 0.6rem;
+  border-radius: 0 0 14px 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-overlay a {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.image-overlay a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffcc00;
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+/* 🔍 Search bar container */
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  
+  margin-top: 1rem;
+}
+
+/* 📦 Wrapper for input and icon */
+.search-bar-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 200px;
+}
+
+/* ✏️ Search input styling */
+.search-bar {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.75rem 0.7rem;
+  font-size: 1rem;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  box-shadow: 0 1px 8px rgba(32, 33, 36, 0.4);
+  border-color: transparent;
+}
+
+/* 🔍 Icon positioning */
+.search-icon {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  color: #666;
+  pointer-events: none;
+}
+
+.hotel-search-page {
+  padding: 2rem;
+  text-align: center;
+}
+
+.search-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.hotel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.hotel-card {
+  width: 300px;
+  background: #ffffffdd;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.hotel-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.hotel-card h3 {
+  margin: 0 0 0.5rem;
+  color: #4b0082;
+}
+
+.hotel-card p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+
