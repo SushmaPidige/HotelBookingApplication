@@ -1,4 +1,7 @@
 #  Hotel Booking System
+## Live Demo
+
+https://hotel-booking-application-tyb7.vercel.app/search-hotels
 
 A full-stack web application for online hotel booking, built using the MERN stack (MongoDB, Express, React, Node.js). This system allows users to search for hotels, view room availability, make bookings, and manage reservations.
 
